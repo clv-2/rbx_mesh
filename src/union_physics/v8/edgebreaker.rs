@@ -218,12 +218,12 @@ fn decode_recursive(
 					decode_recursive(state, bits, cursor_edge)?;
 					cursor_edge += next_offset(cursor_edge);
 				}
-				(false, true) => {
+				(true, false) => {
 					// L: turn left
 					state.adjacency[cursor_edge as usize] = SENTINEL_PROCESSING;
 					cursor_edge += next_offset(cursor_edge);
 				}
-				(true, false) => {
+				(false, true) => {
 					// R: turn right
 					let no = next_offset(cursor_edge);
 					let next_edge = cursor_edge + no;
